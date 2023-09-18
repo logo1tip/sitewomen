@@ -10,3 +10,13 @@ class Women(models.Model):
     is_published = models.BooleanField(default=True)
     
 
+    def __str__(self):
+        return self.title
+    
+
+    class Meta:
+
+        ordering = ['-time_create']
+        indexes = [
+            models.Index(fields=['-time_create']),
+        ]
